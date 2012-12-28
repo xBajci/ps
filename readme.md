@@ -32,6 +32,8 @@ ps.lookup({ pid: 12345 }, function(err, resultList ) {
     }
 });
 
+```
+
 Or use RegExp to filter `command` and `arguments`:
 
 ```javascript
