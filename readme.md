@@ -53,3 +53,19 @@ ps.lookup({
         }
     });
 });
+
+Also, you can use `kill` to kill process by `pid`;
+
+```javascript
+var ps = require('ps-node');
+
+// A simple pid lookup
+ps.kill( '12345', function( err ) {
+    if (err) {
+        throw new Error( err );
+    }
+    else {
+        console.log( 'Process %s has been killed!', pid );
+    }
+});
+```
