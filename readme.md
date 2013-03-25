@@ -74,7 +74,7 @@ ps.kill( '12345', function( err ) {
 });
 ```
 
-You can also pass arguments to `ls` with `psargs`:
+You can also pass arguments to `lookup` with `psargs` as arguments for `ps` command（Note that `psargs` is not available in windows):
 
 ```javascript
 var ps = require('ps-node');
