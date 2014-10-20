@@ -96,3 +96,27 @@ ps.lookup({
 });
 
 ```
+
+Lastly, you can filter a list of items by their PPID by passing a PPID to filter on. You will need to pass in a `psarg` that provides the PPID in the results (`-l` or `-j` for instance).
+
+```javascript
+var ps = require('ps-node');
+
+// A simple pid lookup
+ps.lookup({
+    command: 'mongod',
+    psargs: '-l',
+    ppid: 82292
+    }, function(err, resultList ) {
+    if (err) {
+        throw new Error( err );
+    }
+
+    resultList.forEach(function( process ){
+        if( process ){
+            console.log( 'PID: %s, COMMAND: %s, ARGUMENTS: %s', process.pid, process.command, process.arguments );
+        }
+    });
+});
+
+```
