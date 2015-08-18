@@ -15,5 +15,6 @@
     ],
     "dependencies": {
         "table-parser": "*"
-    }
+    },
+    "license": "MIT"
 }
