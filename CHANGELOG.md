@@ -1,3 +1,6 @@
+## 2016-04-26
+- Publish 0.1.0 update table-parser to 0.1.0
+
 ## 2015-09-20
 
 - Publish 0.0.5.
