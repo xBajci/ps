@@ -10,7 +10,7 @@ $ npm install ps-node
 
 ## Usage
 
-Lookup process with spicified `pid`:
+Lookup process with specified `pid`:
 
 ```javascript
 var ps = require('ps-node');
