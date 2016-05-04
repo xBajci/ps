@@ -1,6 +1,8 @@
 # ps
 
-A Node.js module for looking up running processes.
+A Node.js module for looking up running processes. This module uses [Table-Parser](https://github.com/neekey/table-parser) to parse the output.
+
+Before using this module, you should take look at section [Existing Bugs You Should Know](https://github.com/neekey/ps#user-content-existing-bugs-you-should-know) at the bottom of this doc.
 
 ## Install
 
@@ -120,3 +122,10 @@ ps.lookup({
 });
 
 ```
+
+## Existing Bugs You Should Know
+
+I'm still working on these bugs at the moment, before using this module in any serious way, please take a look at them, and take your own risk.
+
+- [Non-english characters may cause parse error](https://github.com/neekey/table-parser).
+- [This module may not work on Windows](https://github.com/neekey/ps/issues/10). 
