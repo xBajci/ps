@@ -10,6 +10,20 @@ Before using this module, you should take look at section [Existing Bugs You Sho
 $ npm install ps-node
 ```
 
+## How Does It Work
+
+This module uses different tools to get process list:
+
+- Linux / Mac: use `ps` command. Since the default result from shell command `$ ps` will not contain "command arguments" in linux like "ubuntu", ps-node add arguments `l` as default. Which means, the default value for option `psargs` is `l`.
+- Win: use command `wmic process get ProcessId,CommandLine` through "cmd", more info about wmic is [here](https://social.technet.microsoft.com/Forums/windowsserver/en-US/ab6c7e6e-4ad4-4237-bab3-0349cd76c094/wmic-command-line-utilities?forum=winservercore). 
+
+## Compatibility
+
+- Should work great in most *nix system.
+- Should work on Win10/7 more system versions need to be test.  
+
+Any compatibility issue is welcomed.
+
 ## Usage
 
 Lookup process with specified `pid`:
@@ -128,4 +142,3 @@ ps.lookup({
 I'm still working on these bugs at the moment, before using this module in any serious way, please take a look at them, and take your own risk.
 
 - [Non-english characters may cause parse error](https://github.com/neekey/table-parser).
-- [This module may not work on Windows](https://github.com/neekey/ps/issues/10). 

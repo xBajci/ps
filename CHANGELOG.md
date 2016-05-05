@@ -1,3 +1,8 @@
+## 2016-05-05
+- Publish 0.1.1 update table-parser to 0.1.1
+- Integrate with Travis-CI linux / mac is fully tested now
+- Manually test on Win10 and Win7
+
 ## 2016-04-26
 - Publish 0.1.0 update table-parser to 0.1.0
 
