@@ -141,4 +141,4 @@ ps.lookup({
 
 I'm still working on these bugs at the moment, before using this module in any serious way, please take a look at them, and take your own risk.
 
-- [Non-english characters may cause parse error](https://github.com/neekey/table-parser).
+- [multiple-bytes characters may cause parse error](https://github.com/neekey/table-parser).
