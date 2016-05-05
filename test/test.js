@@ -21,7 +21,7 @@ describe('test', function(){
         });
 
         it( 'by command & arguments', function( done ){
-            PS.lookup({ command: '.*node.*', arguments: '.*node_process_for_test\.js' }, function( err, list ){
+            PS.lookup({ command: '.*(node|iojs).*', arguments: 'node_process_for_test' }, function( err, list ){
                 assert.equal( list.length, 1 );
                 assert.equal( list[0].pid, pid );
                 assert.equal( list[0].arguments[0], serverPath );
