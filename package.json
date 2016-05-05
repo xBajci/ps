@@ -8,7 +8,7 @@
     "url": "git://github.com/neekey/ps.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -t 0 -R spec test/test.js"
+    "test": "node ./node_modules/mocha/bin/mocha -t 0 -R spec test/test.js"
   },
   "keywords": [
     "ps",
@@ -17,7 +17,7 @@
     "pid"
   ],
   "dependencies": {
-    "table-parser": "^0.1.0"
+    "table-parser": "^0.1.1"
   },
   "license": "MIT",
   "devDependencies": {
