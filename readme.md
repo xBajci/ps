@@ -1,4 +1,4 @@
-# ps
+# ps [![Build Status](https://travis-ci.org/neekey/ps.svg)](https://travis-ci.org/neekey/ps)
 
 A Node.js module for looking up running processes. This module uses [Table-Parser](https://github.com/neekey/table-parser) to parse the output.
 
