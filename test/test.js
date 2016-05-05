@@ -3,7 +3,7 @@ var CP = require( 'child_process' );
 var assert = require( 'assert' );
 var Path = require( 'path' );
 
-var serverPath = Path.resolve( __dirname, './server_for_test.js' );
+var serverPath = Path.resolve( __dirname, './node_process_for_test.js' );
 var child = CP.fork( serverPath );
 var pid = child.pid;
 
@@ -21,7 +21,7 @@ describe('test', function(){
         });
 
         it( 'by command & arguments', function( done ){
-            PS.lookup({ command: '.*node.*', arguments: '.*server_for_test\.js' }, function( err, list ){
+            PS.lookup({ command: '.*node.*', arguments: '.*node_process_for_test\.js' }, function( err, list ){
                 assert.equal( list.length, 1 );
                 assert.equal( list[0].pid, pid );
                 assert.equal( list[0].arguments[0], serverPath );
