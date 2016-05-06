@@ -15,7 +15,7 @@ $ npm install ps-node
 This module uses different tools to get process list:
 
 - Linux / Mac: use `ps` command. Since the default result from shell command `$ ps` will not contain "command arguments" in linux like "ubuntu", ps-node add arguments `l` as default. Which means, the default value for option `psargs` is `l`.
-- Win: use command `wmic process get ProcessId,CommandLine` through "cmd", more info about wmic is [here](https://social.technet.microsoft.com/Forums/windowsserver/en-US/ab6c7e6e-4ad4-4237-bab3-0349cd76c094/wmic-command-line-utilities?forum=winservercore). 
+- Win: use command `wmic process get ProcessId,CommandLine` through "cmd", more info about wmic is [here](https://social.technet.microsoft.com/Forums/windowsserver/en-US/ab6c7e6e-4ad4-4237-bab3-0349cd76c094/wmic-command-line-utilities?forum=winservercore). Anyway, there is also another tool name [tasklist](https://technet.microsoft.com/en-us/library/bb491010.aspx) in windows, which can also list all the running processes, but lack of command arguments infomation. But compared to wmic, I think this tool should have a higher performance. You should take a look at the wrapper for this tool [tasklist](https://github.com/sindresorhus/tasklist) by @sindresorhs if you are interested.
 
 ## Compatibility
 
