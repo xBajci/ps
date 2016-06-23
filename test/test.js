@@ -3,8 +3,9 @@ var CP = require( 'child_process' );
 var assert = require( 'assert' );
 var Path = require( 'path' );
 
-var serverPath = Path.resolve( __dirname, './node_PROCESS_for_test.js' );
-var child = CP.fork( serverPath );
+var serverPath = Path.resolve( __dirname, './node_process_for_test.js' );
+var UpperCaseArg = '--UPPER_CASE';
+var child = CP.fork( serverPath, [ UpperCaseArg ] );
 var pid = child.pid;
 
 describe('test', function(){
@@ -21,7 +22,7 @@ describe('test', function(){
         });
 
         it( 'by command & arguments', function( done ){
-            PS.lookup({ command: '.*(node|iojs).*', arguments: 'node_PROCESS_for_test' }, function( err, list ){
+            PS.lookup({ command: '.*(node|iojs).*', arguments: 'node_process_for_test' }, function( err, list ){
                 assert.equal( list.length, 1 );
                 assert.equal( list[0].pid, pid );
                 assert.equal( list[0].arguments[0], serverPath );
@@ -30,11 +31,17 @@ describe('test', function(){
         });
 
         it( 'by arguments, the matching should be case insensitive ', function( done ){
-            PS.lookup({ arguments: 'node_process_for_test' }, function( err, list ){
+            PS.lookup({ arguments: 'UPPER_CASE' }, function( err, list ){
                 assert.equal( list.length, 1 );
                 assert.equal( list[0].pid, pid );
                 assert.equal( list[0].arguments[0], serverPath );
-                done();
+
+                PS.lookup({ arguments: 'upper_case' }, function( err, list ){
+                    assert.equal( list.length, 1 );
+                    assert.equal( list[0].pid, pid );
+                    assert.equal( list[0].arguments[0], serverPath );
+                    done();
+                });
             });
         });
 
