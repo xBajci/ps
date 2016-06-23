@@ -1,3 +1,7 @@
+## 2016-06-23
+- Publish 0.1.2
+- change `command` and `argument` matching to case insensitive.
+
 ## 2016-05-05
 - Publish 0.1.1 update table-parser to 0.1.1
 - Integrate with Travis-CI linux / mac is fully tested now
