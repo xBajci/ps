@@ -67,7 +67,7 @@ describe('test', function(){
         });
 
         it( 'should not throw an exception if the callback is undefined', function( done ){
-            assert.doesNotThrow(() => {
+            assert.doesNotThrow(function () {
                 PS.kill(pid);
                 setTimeout(done, 400);
             });
