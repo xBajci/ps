@@ -65,5 +65,12 @@ describe('test', function(){
                 });
             });
         });
+
+        it( 'should not throw an exception if the callback is undefined', function( done ){
+            assert.doesNotThrow(() => {
+                PS.kill(pid);
+                setTimeout(done, 400);
+            });
+        });
     });
 });
