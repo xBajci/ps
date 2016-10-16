@@ -5,10 +5,35 @@ var Path = require( 'path' );
 
 var serverPath = Path.resolve( __dirname, './node_process_for_test.js' );
 var UpperCaseArg = '--UPPER_CASE';
-var child = CP.fork( serverPath, [ UpperCaseArg ] );
-var pid = child.pid;
+var child = null;
+var pid = null;
+
+function startProcess() {
+  child = CP.fork(serverPath, [ UpperCaseArg ]);
+  pid = child.pid;
+}
 
 describe('test', function(){
+  before(function (done) {
+    PS.lookup({arguments: 'node_process_for_test'}, function (err, list) {
+      var processLen = list.length;
+      var killedCount = 0;
+      if (processLen) {
+        list.forEach(function (item) {
+          PS.kill(item.pid, function () {
+            killedCount++;
+            if (killedCount === processLen) {
+              startProcess();
+              done();
+            }
+          });
+        });
+      } else {
+        startProcess();
+        done();
+      }
+    });
+  });
 
     describe( '#lookup()', function(){
 

@@ -1,5 +1,7 @@
 var now = Date.now();
-setTimeout(function(){
+console.log( '[child] child process start!' );
+
+setInterval(function(){
     var interval = Date.now() - now;
-    console.log( 'Timer finished, time consuming: ' + interval );
-}, 1000000 );
+    console.log( '[child] Timer finished, time consuming: ' + interval );
+}, 50);
