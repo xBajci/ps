@@ -51,6 +51,16 @@ describe('test', function(){
                 done();
             });
         });
+
+        it('should work correctly with options `aux`', function(done) {
+            PS.lookup({ command: 'node', psargs: 'aux' }, function( err, list ){
+                assert.equal(list.length > 0, true);
+                list.forEach(function(row) {
+                    assert.equal(/^\d+$/.test(row.pid), true);
+                });
+                done();
+            });
+        });
     });
 
     describe( '#kill()', function(){
