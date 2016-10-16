@@ -90,6 +90,24 @@ ps.kill( '12345', function( err ) {
 });
 ```
 
+Method `kill` also supports a `signal` option to be passed. This **only** works on Linux/Mac. For a list of all available signals on your system type `kill -l` in your console.
+
+```javascript
+var ps = require('ps-node');
+
+//Pass signal 9 for killing the process witout allowing it to clean up
+ps.kill( '12345', { signal: 9 }, function( err ) {
+    if (err) {
+        throw new Error( err );
+    }
+    else {
+        console.log( 'Process %s has been killed without a clean-up!', pid );
+    }
+});
+```
+
+
+
 You can also pass arguments to `lookup` with `psargs` as arguments for `ps` command（Note that `psargs` is not available in windows):
 
 ```javascript
