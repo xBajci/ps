@@ -16,6 +16,9 @@ function startProcess() {
 describe('test', function () {
   before(function (done) {
     PS.lookup({arguments: 'node_process_for_test'}, function (err, list) {
+      if (err) {
+        return done(err);
+      }
       var processLen = list.length;
       var killedCount = 0;
       if (processLen) {
