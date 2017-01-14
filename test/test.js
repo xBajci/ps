@@ -99,17 +99,6 @@ describe('test', function () {
         done();
       });
     });
-
-    // option `-u` requires username as a following argument, will omit it
-    it('should work correctly with options `[-a, -x]`', function (done) {
-      PS.lookup({command: 'node', psargs: ['-a', '-x']}, function (err, list) {
-        assert.equal(list.length > 0, true);
-        list.forEach(function (row) {
-          assert.equal(/^\d+$/.test(row.pid), true);
-        });
-        done();
-      });
-    });
   });
 
   describe('#kill()', function () {
