@@ -16,6 +16,9 @@ function startProcess() {
 describe('test', function () {
   before(function (done) {
     PS.lookup({arguments: 'node_process_for_test'}, function (err, list) {
+      if (err) {
+        return done(err);
+      }
       var processLen = list.length;
       var killedCount = 0;
       if (processLen) {
@@ -79,6 +82,16 @@ describe('test', function () {
 
     it('should work correctly with options `aux`', function (done) {
       PS.lookup({command: 'node', psargs: 'aux'}, function (err, list) {
+        assert.equal(list.length > 0, true);
+        list.forEach(function (row) {
+          assert.equal(/^\d+$/.test(row.pid), true);
+        });
+        done();
+      });
+    });
+
+    it('should work correctly with options `[aux]`', function (done) {
+      PS.lookup({command: 'node', psargs: ['aux']}, function (err, list) {
         assert.equal(list.length > 0, true);
         list.forEach(function (row) {
           assert.equal(/^\d+$/.test(row.pid), true);
